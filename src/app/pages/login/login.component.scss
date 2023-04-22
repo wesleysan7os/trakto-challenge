@@ -1,0 +1,87 @@
+div.login-container {
+  min-height: 730px;
+
+  main {
+    height: 100vh;
+
+    section {
+      width: 300px;
+      height: 345px;
+    }
+
+    img.logo {
+      margin-bottom: 40px;
+    }
+    
+    img.orange-circle {
+      position: absolute;
+      left: calc(50% - 8.76px/2 - 28.82px);
+      top: calc(50% - 8.76px/2 - 148.82px);
+    }
+
+    h1 {
+      width: 260px;
+      line-height: 23.4px;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: #04183E;
+    }
+
+    form {
+      font-size: 14px;
+      line-height: 16.4px;
+      
+      div:focus-within label {
+        color: #0095FF;
+      }
+
+      label {
+        display: block;
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+
+      input {
+        width: 300px;
+        height: 48px;
+        padding: 16px;
+        border-radius: 4px;
+        margin-bottom: 24px;
+        border: none;
+        caret-color: #66AFFF;
+
+        &:focus {
+          outline: 2px solid #66BFFF;
+        }
+
+        &[type='password'] {
+          color: #D0DAEF;
+        }
+      }
+
+      button {
+        color: #FFF;
+        width: 300px;
+        height: 48px;
+        padding: 13px 116px 14px 89px;
+        border-radius: 4px;
+        background-color: #1DC763;
+        border: none;
+        cursor: pointer;
+
+        div {
+          width: 95px;
+          height: 21px;
+          display: flex;
+          align-items: center;
+        }
+
+        span:last-child {
+          font-weight: 500;
+          padding-left: 6px;
+        }
+      }
+    }
+  }
+}
