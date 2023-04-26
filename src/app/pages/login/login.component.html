@@ -1,25 +1,42 @@
 <div class="login-container">
   <main class="d-flex flex-column justify-content-center align-items-center">
     <section>
-      <img class="logo" src="../../../assets/logo.png" alt="logo da trakto">
-      <img class="orange-circle" src="../../../assets/orange-circle.png" alt="sinal grático de ponto final">
+      <img src="/assets/logo.png" alt="logo da trakto">
       <h1>Olá, faça login em sua conta.</h1>
-      <form autocomplete="off">
+      <form autocomplete="off" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
         <div>
           <label class="d-block" for="email">E-mail</label>
-          <input type="email" name="email" id="email">
+          <input 
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Endereço de e-mail"
+            ngModel
+            required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          />
         </div>
         <div>
-          <label class="d-block" for="senha">Senha</label>
-          <input type="password" name="senha" id="senha">
+          <label class="d-block" for="password">Senha</label>
+          <input 
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Digite sua senha"
+            ngModel
+            required
+          />
         </div>
-        <button type="submit">
-          <div>
+        <button type="submit" [disabled]="!loginForm.form.valid" [class.disabled]="!loginForm.form.valid">
+          <div *ngIf="isLoading">
             <span class="spinner-border text-light" role="status">
-              <!-- accessibility purpose -->
-              <span class="sr-only">Loading...</span> accesibility
+              <!-- accessibility purposes -->
+              <span class="sr-only">Loading...</span>
             </span>
             <span>Entrando...</span>
+          </div>
+          <div *ngIf="!isLoading">
+            <span>Entrar</span>
           </div>
         </button>
       </form>
