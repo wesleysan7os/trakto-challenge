@@ -22,7 +22,10 @@ export class LoginComponent implements OnDestroy {
   onSubmit(credencials: Credentials): void {
     this.isLoading = true;
     const loginSubscription$ = this.loginService.login(credencials).subscribe(
-      () => setTimeout(() => (this.isLoading = false), 3000), // apenas para mostrar o spinner
+      (res) => {
+        setTimeout(() => (this.isLoading = false), 3000); // apenas para mostrar o spinner
+        console.log(res);
+      }, 
       (error) => {
         this.toastr.error('Verifique seu login', '', { progressBar: true });
         console.log(error);
