@@ -27,7 +27,7 @@
             required
           />
         </div>
-        <button id="submit" type="submit" [disabled]="loginForm.invalid">
+        <button type="submit" [disabled]="loginForm.invalid">
           <div *ngIf="isLoading">
             <span class="spinner-border text-light" role="status">
               <!-- accessibility purposes -->
