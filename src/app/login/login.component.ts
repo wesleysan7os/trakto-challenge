@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { LoginService } from './services/login.service';
 import { Credentials } from './models/login.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,15 +18,16 @@ export class LoginComponent implements OnDestroy {
 
   constructor(
     private loginService: LoginService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   onSubmit(credencials: Credentials): void {
     this.isLoading = true;
     const loginSubscription$ = this.loginService.login(credencials).subscribe(
-      (res) => {
+      () => {
         this.isLoading = false;
-        console.log(res);
+        this.router.navigate(['home']);
       },
       (error) => {
         this.toastr.error('Verifique seu login', '', { progressBar: true });
