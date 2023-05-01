@@ -1,5 +1,5 @@
 div.login-container {
-  min-height: 730px;
+  height: 100%;
 
   main {
     height: 100vh;
@@ -64,7 +64,7 @@ div.login-container {
         border: none;
         cursor: pointer;
 
-        &.disabled {
+        &[disabled] {
           opacity: 0.3;
           cursor: not-allowed;
         }

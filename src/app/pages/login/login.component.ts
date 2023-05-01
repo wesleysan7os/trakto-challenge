@@ -11,6 +11,7 @@ import { Credentials } from './models/login.model';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnDestroy {
+  emailPattern = '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$';
   isLoading = false;
   subscription: Subscription = new Subscription();
 
@@ -23,9 +24,9 @@ export class LoginComponent implements OnDestroy {
     this.isLoading = true;
     const loginSubscription$ = this.loginService.login(credencials).subscribe(
       (res) => {
-        setTimeout(() => (this.isLoading = false), 3000); // apenas para mostrar o spinner
+        this.isLoading = false;
         console.log(res);
-      }, 
+      },
       (error) => {
         this.toastr.error('Verifique seu login', '', { progressBar: true });
         console.log(error);

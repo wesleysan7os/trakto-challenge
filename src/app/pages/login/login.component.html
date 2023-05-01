@@ -13,7 +13,7 @@
             placeholder="Endereço de e-mail"
             ngModel
             required
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            [pattern]="emailPattern"
           />
         </div>
         <div>
@@ -27,7 +27,7 @@
             required
           />
         </div>
-        <button type="submit" [disabled]="!loginForm.form.valid" [class.disabled]="!loginForm.form.valid">
+        <button id="submit" type="submit" [disabled]="loginForm.invalid">
           <div *ngIf="isLoading">
             <span class="spinner-border text-light" role="status">
               <!-- accessibility purposes -->
